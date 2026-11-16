@@ -1,0 +1,28 @@
+name: release
+
+# On a version tag (v0.1.0 …), zip each skill for upload to Claude chat (Settings → Capabilities → Skills)
+# and attach the zips to a GitHub release. Each zip holds one skill folder plus the licences.
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  zips:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build skill zips
+        run: |
+          mkdir -p dist
+          for d in skills/*/; do
+            n=$(basename "$d")
+            cp LICENSE NOTICE "$d"; cp -r LICENSES "$d"
+            (cd skills && zip -qr "../dist/$n.zip" "$n" -x "*/out/*" "*/audio/source.mp3")
+          done
+          ls -la dist
+      - run: gh release create "$GITHUB_REF_NAME" dist/*.zip --title "$GITHUB_REF_NAME" --generate-notes
+        env:
+          GH_TOKEN: ${{ github.token }}

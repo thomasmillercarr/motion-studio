@@ -1,0 +1,10 @@
+# Client and personal films are private: never commit them.
+films/
+out/
+**/audio/source.mp3
+.impeccable/
+node_modules/
+dist/
+
+# Local machine notes and working state (not for the public repo)
+local/

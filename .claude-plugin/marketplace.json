@@ -1,0 +1,12 @@
+{
+  "name": "motion-studio",
+  "owner": { "name": "thomasmillercarr" },
+  "description": "Reference-led creative direction and rendering for motion-design films.",
+  "plugins": [
+    {
+      "name": "motion-studio",
+      "source": "./",
+      "description": "studio, reference-research, film-review and beatfilm skills for directing and rendering motion-design films."
+    }
+  ]
+}

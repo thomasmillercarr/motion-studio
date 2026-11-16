@@ -1,0 +1,8 @@
+{
+  "name": "motion-studio",
+  "version": "0.1.0",
+  "description": "Reference-led creative direction for motion-design films: brief, research, three directions, approval, then beatfilm builds and renders it to MP4.",
+  "author": { "name": "thomasmillercarr" },
+  "repository": "https://github.com/thomasmillercarr/motion-studio",
+  "license": "MIT"
+}
